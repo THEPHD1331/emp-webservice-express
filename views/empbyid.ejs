@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+</head>
+<body>
+    <header>
+        <h1>Employee Management system</h1>
+    </header>
+    <div>
+        <!-- <form action="/addemp">
+            <button type="submit" name="btn" id="add" value="add">Add new Employee</button>
+        </form> -->
+        <h1>Employee No: <%=empdata[0].id%></h1>
+    </div>
+    <div>
+        <table border="'3">
+            <thead>
+              <tr>
+                <th>Employee id</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Department</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- <%for(var i=0;i<empdata.length;i++){%> -->
+                    <tr>
+                      <td><%=empdata[0].id%></td> 
+                      <td><%=empdata[0].name%></td> 
+                      <td><%=empdata[0].sal%></td> 
+                      <td><%=empdata[0].dept%></td> 
+                      </td>
+                    </tr>
+
+                <!-- <%}%> -->
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+</head>
+<body>
+    <header>
+        <h1>Employee Management system</h1>
+    </header>
+    <div>
+        <button type="button"><a href="/employee-add"> Add Employee</a></button>
+    </div>
+    <div>
+        <table border="'3">
+            <thead>
+              <tr>
+                <th>Employee id</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Department</th>
+               <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <%for(var i=0;i<empdata.length;i++){%>
+                    <tr>
+                      <td><a href="/employees/<%=empdata[i].id%>"><%=empdata[i].id%></a></td> 
+                      <td><%=empdata[i].name%></td> 
+                      <td><%=empdata[i].sal%></td> 
+                      <td><%=empdata[i].dept%></td> 
+                      <td>
+                        <a href="/editEmp/<%=empdata[i].id%>">edit</a>
+                        /
+                        <a href="/deleteEmp/<%=empdata[i].id%>">delete</a>
+                      </td>
+                    </tr>
+
+                <%}%>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

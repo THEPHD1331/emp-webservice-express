@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Emp</title>
+</head>
+<body>
+    
+    <h1>Update Employee: </h1>
+    <form action="/updateEmp" method="post">
+        <h2>Enter Emp Id: </h2>
+        <input type="number" name="id" id="id" value="<%=emp.id%>">
+        <br>
+        <h2>Enter Emp Name: </h2>
+        <input type="text" name="name" id="empname" value="<%=emp.name%>">
+        <br>
+        <h2>Enter Emp Sal:</h2>
+        <input type="number" name="sal" id="empsal" value="<%=emp.sal%>">
+        <h2>Enter dept: </h2>
+        <input type="text" name="dept" id="empdept" value="<%=emp.dept%>">
+        <br>
+        <button type="submit" id="upempbtn">Submit</button>
+    </form>
+</body>
+</html>
