@@ -4,21 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Emp</title>
+    <script>
+        
+        let validateIdAndSal = () => {
+           let id = parseInt(document.getElementById('empid').value);
+           let sal = parseInt(document.getElementById('empsal').value);
+
+           if (document.getElementById('empid').value === "" || document.getElementById('empsal').value === "" || (id <= 0 || sal <= 0)){
+            document.getElementById('errid').innerHTML='Please Enter Valid Id';
+            document.getElementById('errsal').innerHTML='Please Enter Valid Salary';
+            return false;
+           }
+           return true;
+        }
+
+        let validateNameAndDept = () => {
+           let name = (document.getElementById('empname').value);
+           let dept = (document.getElementById('empdept').value);
+
+           if (name === "" && dept === "" || name.trim().length == 0 && dept.trim().length == 0){
+            document.getElementById('errname').innerHTML='Please Enter Valid Name';
+            document.getElementById('errdept').innerHTML='Please Enter Valid Dept';
+            return false;
+           }
+           return true;
+        }
+
+        let validateUpdateEmp = () => {
+            let flag1 = validateIdAndSal();
+            let flag2 = validateNameAndDept();
+            return flag1 && flag2;
+        }
+    </script>
 </head>
 <body>
     
     <h1>Update Employee: </h1>
-    <form action="/updateEmp" method="post">
+    <form action="/updateEmp" method="post" onsubmit="validateUpdateEmp()">
         <h2>Enter Emp Id: </h2>
-        <input type="number" name="id" id="id" value="<%=emp.id%>">
+        <input type="number" name="id" id="id" value="<%=emp.id%>" readonly> <span id="errid"></span>
         <br>
         <h2>Enter Emp Name: </h2>
-        <input type="text" name="name" id="empname" value="<%=emp.name%>">
+        <input type="text" name="name" id="empname" value="<%=emp.name%>"> <span id="errname"></span>
         <br>
         <h2>Enter Emp Sal:</h2>
-        <input type="number" name="sal" id="empsal" value="<%=emp.sal%>">
+        <input type="number" name="sal" id="empsal" value="<%=emp.sal%>"> <span id="errsal"></span>
         <h2>Enter dept: </h2>
-        <input type="text" name="dept" id="empdept" value="<%=emp.dept%>">
+        <input type="text" name="dept" id="empdept" value="<%=emp.dept%>"> <span id="errdept"></span>
         <br>
         <button type="submit" id="upempbtn">Submit</button>
     </form>

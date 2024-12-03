@@ -4,21 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Emp</title>
+    <script>
+        
+        let validateIdAndSal = () => {
+           let id = parseInt(document.getElementById('empid').value);
+           let sal = parseInt(document.getElementById('empsal').value);
+
+           if (document.getElementById('empid').value === "" || document.getElementById('empsal').value === "" || (id <= 0 || sal <= 0)){
+            document.getElementById('errid').innerHTML='Please Enter Valid Id';
+            document.getElementById('errsal').innerHTML='Please Enter Valid Salary';
+            return false;
+           }
+           return true;
+        }
+
+        let validateNameAndDept = () => {
+           let name = (document.getElementById('empname').value);
+           let dept = (document.getElementById('empdept').value);
+
+           if (name === "" && dept === "" || name.trim().length == 0 && dept.trim().length == 0){
+            document.getElementById('errname').innerHTML='Please Enter Valid Name';
+            document.getElementById('errdept').innerHTML='Please Enter Valid Dept';
+            return false;
+           }
+           return true;
+        }
+
+        let validateAddEmp = () => {
+            let flag1 = validateIdAndSal();
+            let flag2 = validateNameAndDept();
+            return flag1 && flag2;
+        }
+    </script>
 </head>
+
 <body>
     
     <h1>Add Employee: </h1>
-    <form action="/addEmp" method="post">
+    <form action="/addEmp" method="post" onsubmit="return validateAddEmp()">
         <h2>Enter Emp Id: </h2>
-        <input type="number" name="id" id="empid">
+        <input type="text" name="id" id="empid"> <span id="errid"></span>
         <br>
         <h2>Enter Emp Name: </h2>
-        <input type="text" name="name" id="empname">
+        <input type="text" name="name" id="empname"> <span id="errname"></span>
         <br>
         <h2>Enter Emp Sal:</h2>
-        <input type="number" name="sal" id="empsal">
+        <input type="text" name="sal" id="empsal"> <span id="errsal"></span>
         <h2>Enter dept: </h2>
-        <input type="text" name="dept" id="empdept">
+        <input type="text" name="dept" id="empdept"> <span id="errdept"></span>
         <br>
         <button type="submit" id="addempbtn">Submit</button>
     </form>
